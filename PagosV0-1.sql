@@ -10,7 +10,7 @@ CREATE TABLE PaymentMethod(
 
 	PaymentMethod_Id INT PRIMARY KEY IDENTITY NOT NULL,
 	PaymentMethodName VARCHAR(50) UNIQUE NOT NULL
-
+	
 );
 
 
@@ -29,7 +29,7 @@ CREATE TABLE Payment(
 
 );
 
---Tabla de las transacciones de los pagos
+-- Tabla de las transacciones de los pagos
 
 CREATE TABLE PaymentTransaction(
 
@@ -38,6 +38,16 @@ CREATE TABLE PaymentTransaction(
 	TransactionDate DATETIME NOT NULL,
 	TransactionAmount DECIMAL(10,2) NOT NULL,
 	TransactionStatus VARCHAR(20) NOT NULL,
+	FOREIGN KEY (Payment_Id) REFERENCES Payment(Payment_Id)
+
+);
+
+-- Tabla de pedidos rechazados
+
+CREATE TABLE PaymentRejected(
+	
+	PaymentRejected_Id INT PRIMARY KEY IDENTITY NOT NULL,
+	Payment_Id INT NOT NULL,
 	FOREIGN KEY (Payment_Id) REFERENCES Payment(Payment_Id)
 
 );
