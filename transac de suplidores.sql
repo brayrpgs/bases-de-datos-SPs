@@ -9,13 +9,24 @@ BEGIN
 END;
 
 
-CREATE PROCEDURE GetSupplier
+CREATE PROCEDURE GetSupplierForId
     @id_Supplier INT
 AS
 BEGIN
-    SELECT * FROM suppliers WHERE id_Supplier = @id_Supplier;
+    SELECT 
+		nameSupplier,
+		informationSupplier,
+		priceBase
+	FROM suppliers WHERE id_Supplier = @id_Supplier;
 END;
 
+CREATE PROCEDURE GetSupplierAll
+AS
+BEGIN
+    SELECT nameSupplier,
+		informationSupplier,
+		priceBase FROM suppliers
+END;
 
 CREATE PROCEDURE UpdateSupplier
     @id_Supplier INT,

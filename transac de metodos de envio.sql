@@ -12,7 +12,13 @@ CREATE PROCEDURE GetMethodSend
     @id_MethodSend INT
 AS
 BEGIN
-    SELECT * FROM methodSend WHERE id_MethodSend = @id_MethodSend;
+    SELECT nameMethod FROM methodSend WHERE id_MethodSend = @id_MethodSend;
+END;
+
+CREATE PROCEDURE GetMethodSendAll
+AS
+BEGIN
+    SELECT nameMethod FROM methodSend
 END;
 
 

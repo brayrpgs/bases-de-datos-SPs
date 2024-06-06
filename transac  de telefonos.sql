@@ -11,7 +11,13 @@ CREATE PROCEDURE GetPhone
     @id_Phone INT
 AS
 BEGIN
-    SELECT * FROM Phone WHERE id_Phone = @id_Phone;
+    SELECT phone FROM Phone WHERE id_Phone = @id_Phone;
+END;
+
+CREATE PROCEDURE GetPhoneAll
+AS
+BEGIN
+    SELECT phone FROM Phone
 END;
 
 CREATE PROCEDURE UpdatePhone
