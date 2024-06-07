@@ -2,6 +2,7 @@
 package cr.ac.una.proyectobd.presentation.product;
 
 import cr.ac.una.proyectobd.domain.Category;
+import cr.ac.una.proyectobd.domain.Product;
 import cr.ac.una.proyectobd.domain.Supplier;
 import java.io.File;
 import java.util.ArrayList;
@@ -12,16 +13,18 @@ import javax.swing.JOptionPane;
  *
  * @author Daniel Briones
  */
-public class viewRegisterProduct extends javax.swing.JFrame {
+public class viewEditProduct extends javax.swing.JFrame {
 
     private String urlImage = "";
-
+    private Product p;
     /**
      * Creates new form wie
      */
-    public viewRegisterProduct() {
+    public viewEditProduct(Product p) {
+        this.p = p;
         initComponents();
         uploadCB();
+        uploadData();
     }
 
     private void clearFilds() {
@@ -34,6 +37,7 @@ public class viewRegisterProduct extends javax.swing.JFrame {
     }
 
     private void uploadCB() {
+//        Traer los datos de la base de datos
         ArrayList<Supplier> listSupplier = new ArrayList<>();
         listSupplier.add(new Supplier(1, "Proveedor 1"));
         
@@ -51,6 +55,15 @@ public class viewRegisterProduct extends javax.swing.JFrame {
             cbCategory.addItem(category);
         }
         
+    }
+    
+    private void uploadData(){
+        tNameProduct.setText(this.p.getName());
+        tDescription.setText("");
+        cbSupplier.setSelectedIndex(0);
+        tPrice.setText("");
+        tQuantity.setText("");
+        cbCategory.setSelectedIndex(0);
     }
 
     /**
@@ -77,12 +90,12 @@ public class viewRegisterProduct extends javax.swing.JFrame {
         cbCategory = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         btnUploadImage = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
+        btnModify = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         lNameImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Agregar producto");
+        setTitle("Modificar producto");
 
         jLabel1.setText("Nombre");
 
@@ -128,10 +141,10 @@ public class viewRegisterProduct extends javax.swing.JFrame {
             }
         });
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnModify.setText("Modificar");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnModifyActionPerformed(evt);
             }
         });
 
@@ -175,7 +188,7 @@ public class viewRegisterProduct extends javax.swing.JFrame {
                         .addGap(0, 74, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -217,7 +230,7 @@ public class viewRegisterProduct extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAgregar)
+                .addComponent(btnModify)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -256,7 +269,7 @@ public class viewRegisterProduct extends javax.swing.JFrame {
         });
 
         // Mostrar el diálogo para seleccionar archivos
-        int result = fileChooser.showOpenDialog(viewRegisterProduct.this);
+        int result = fileChooser.showOpenDialog(viewEditProduct.this);
 
         // Si el usuario selecciona un archivo
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -270,7 +283,7 @@ public class viewRegisterProduct extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnUploadImageMouseClicked
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {                                           
         
         try {
             String name = tNameProduct.getText();
@@ -288,9 +301,10 @@ public class viewRegisterProduct extends javax.swing.JFrame {
                 return;
             }
 
-            //Registrar en BD
-            JOptionPane.showMessageDialog(null, "Registrar en BD");
-            
+            //Editar en BD
+            JOptionPane.showMessageDialog(null, "Editar en BD");
+//          Actualizar los valores en el objeto
+            //this.p.setName(name);
             
             
 //          Si todo es correcto limpiar variables y campos
@@ -302,11 +316,11 @@ public class viewRegisterProduct extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El precio y cantidad deben ser de tipo numérico");
         }
 
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }                                         
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnModify;
     private javax.swing.JButton btnUploadImage;
     private javax.swing.JComboBox<Category> cbCategory;
     private javax.swing.JComboBox<Supplier> cbSupplier;
@@ -326,3 +340,4 @@ public class viewRegisterProduct extends javax.swing.JFrame {
     private javax.swing.JTextField tQuantity;
     // End of variables declaration//GEN-END:variables
 }
+

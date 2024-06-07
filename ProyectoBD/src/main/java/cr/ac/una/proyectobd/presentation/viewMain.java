@@ -193,7 +193,7 @@ public class viewMain extends javax.swing.JFrame {
     }//GEN-LAST:event_miLogOutActionPerformed
 
     private void miUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUpdateProductActionPerformed
-        initializerViews.createViewUpdateProduct();
+        initializerViews.createViewUpdateProduct(null);
     }//GEN-LAST:event_miUpdateProductActionPerformed
 
     private void miDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDeleteProductActionPerformed

@@ -1,9 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package cr.ac.una.proyectobd.utilities;
 
+import cr.ac.una.proyectobd.domain.Product;
+import cr.ac.una.proyectobd.presentation.product.viewEditProduct;
 import cr.ac.una.proyectobd.presentation.product.viewListProduct;
 import cr.ac.una.proyectobd.presentation.product.viewRegisterProduct;
 import cr.ac.una.proyectobd.presentation.security.Login;
@@ -40,9 +39,16 @@ public class initializerViews {
         view.setLocationRelativeTo(null);
     }
     
-    public static void createViewUpdateProduct(){
-        JOptionPane.showMessageDialog(null, "Seleccione el producto a editar");
-        createViewListProduct();
+    public static void createViewUpdateProduct(Product p){
+        
+        if(p == null){
+            JOptionPane.showMessageDialog(null, "Seleccione el producto a editar");
+            createViewListProduct();
+        } else {
+            viewEditProduct view = new viewEditProduct(p);
+            view.setVisible(true);
+            view.setLocationRelativeTo(null);
+        }
     }
     
     public static void createViewDeleteProduct(){
