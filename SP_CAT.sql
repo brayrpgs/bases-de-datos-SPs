@@ -57,28 +57,6 @@ END
 GO
 
 
-DECLARE @ReturnValue INT;
-
-EXEC Sp_InsertCategory 
-    @Cat_Code = 'CAT-958',
-    @Cat_Name = 'TELEFONOS',
-    @return = @ReturnValue OUTPUT;
-
--- Verificar el valor retornado
-SELECT @ReturnValue AS ReturnValue;
-
--- Interpretar el valor retornado
-IF @ReturnValue = 1
-    PRINT 'Inserción exitosa.';
-ELSE IF @ReturnValue = 0
-    PRINT 'La categoría ya existe.';
-ELSE IF @ReturnValue = -1
-    PRINT 'Datos inválidos o error durante la inserción.';
-
-	
-
-
-
 	--Eliminar
 
 	SET ANSI_NULLS ON
@@ -145,17 +123,6 @@ BEGIN
 END
 GO
 
-DECLARE @ReturnValue INT;
-
-EXEC Sp_DeleteCategory 
-    @Cat_Code = 'ST989',
-    @return = @ReturnValue OUTPUT;
-
--- Verificar el valor retornado
-SELECT @ReturnValue AS ReturnValue;
-
-
-
 
 --SELECCIONAR UNA CATEGORIA
 
@@ -192,16 +159,6 @@ BEGIN
 
 END
 GO
-
-DECLARE @Cat_Code nvarchar(100) = 'CAT-001'; -- Cambia 'TU_CATEGORIA' por el código de categoría que desees buscar
-DECLARE @Cat_name nvarchar(100);
-DECLARE @return_Id int;
-
-EXEC Sp_SelectCategory @Cat_Code, @Cat_name OUTPUT, @return_Id OUTPUT;
-
--- Mostrar los resultados obtenidos
-SELECT @Cat_name AS CategoryName, @return_Id AS CategoryId;
-
 
 --MODIFICAR CATEGORIA
 
@@ -260,11 +217,3 @@ GO
 
 
 
-DECLARE @Cat_Code nvarchar(100) = 'CAT-001'; -- Cambia 'Código_Categoria' por el código de la categoría que deseas modificar
-DECLARE @Cat_name nvarchar(100) = 'TECNOLOGIA'; -- Cambia 'Nuevo_Nombre' por el nuevo nombre que deseas asignar a la categoría
-DECLARE @return_Id int;
-
-EXEC Sp_ModifyCategory @Cat_Code, @Cat_name, @return_Id OUTPUT;
-
--- Mostrar el valor de retorno
-SELECT @return_Id AS ReturnValue;
