@@ -231,11 +231,47 @@ BEGIN
 END
 GO
 
-
-		
-
 END
 GO
 
+--seleccionar id Cat
+	SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE Sp_selectIdCat
+	@Cat_Code nvarchar (100),
+	@return_Id int OUTPUT
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+	IF @Cat_Code IS NULL OR @Cat_Code = ''
+    BEGIN
+	SET @return_Id = -1
+        RETURN;
+    END
+
+	IF  DATALENGTH(@Cat_Code) > 100
+	BEGIN
+	SET @return_Id=-2
+	RETURN;
+	END
+
+	IF EXISTS (SELECT 1 FROM CATEGORY WHERE CODE_CATEGORY=@Cat_Code)
+	BEGIN
+	SELECT @return_Id=ID_CATEGORY FROM CATEGORY WHERE CODE_CATEGORY=@Cat_Code
+	RETURN;
+	END
+	ELSE
+	BEGIN
+	SET @return_Id=0
+	RETURN;
+	END
+	
+END
+GO
 
 
