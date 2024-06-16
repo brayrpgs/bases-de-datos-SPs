@@ -1,11 +1,8 @@
-create table Phone(
-IdPhone INT PRIMARY KEY IDENTITY (1,1),
-phone int UNIQUE not null,
-)
+create database proyecto
 
 create table Province(
 IdProvince INT PRIMARY KEY IDENTITY (1,1),
-nameProvince nvarchar(20) UNIQUE not null
+nameProvince nvarchar(20) not null
 )
 
 create table Address(
@@ -19,13 +16,18 @@ IdPerson INT PRIMARY KEY IDENTITY (1,1),
 name nvarchar(100) not null,
 lastName nvarchar(100) not null,
 secondLastName nvarchar(100) not null,
-IdPhone INT FOREIGN KEY REFERENCES Phone(IdPhone),
-IdAddress INT FOREIGN KEY REFERENCES Address(IdAddress)
+IdAddress INT FOREIGN KEY REFERENCES Address(IdAddress)ON DELETE CASCADE
 );
+
 
 create table Client(
 IdClient INT PRIMARY KEY IDENTITY (1,1),
-IdPerson INT FOREIGN KEY REFERENCES Person(IdPerson)
+IdPerson INT FOREIGN KEY REFERENCES Person(IdPerson)ON DELETE CASCADE
+)
+create table Phone(
+IdPhone INT PRIMARY KEY IDENTITY (1,1),
+phone int UNIQUE not null,
+IdPerson INT FOREIGN KEY REFERENCES Person(IdPerson)ON DELETE CASCADE
 )
 
 CREATE TABLE ShoppingHistory (
@@ -33,3 +35,5 @@ CREATE TABLE ShoppingHistory (
     IdClient INT UNIQUE NOT NULL,
     FOREIGN KEY (IdClient) REFERENCES Client(IdClient) ON DELETE CASCADE
 )
+
+

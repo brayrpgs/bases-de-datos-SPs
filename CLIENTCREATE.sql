@@ -1,124 +1,93 @@
-
+GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
--- =============================================
--- Author:		<Ceasar Calvo>
--- Create date: <6/1/24>
--- Description:	<CRUD CLIENT>
--- =============================================
-Alter PROCEDURE SP_CreateClient 
---Parameter initialization
-	--Province
-	@IdProvince int,
-	@nameProvince nvarchar(20),
-	--Phone
-	@IdPhone int,
-	@phone int,
 
-	--Address
-	@IdAddress int,
-	@street nvarchar (100),
-	--Person
-	@IdPerson int,
-	@name nvarchar(100),
-	@lastName nvarchar(100),
-	@secondLastName nvarchar(100),
-	--Client
-	@IdClient int,
-	--ShoppingHistory
-	@IdShoppingHistory int,
-	--Variables
-	@ERROR INT OUT
-	
+-- =============================================
+-- Author:    <Ceasar Calvo>
+-- Create date:  <6/3/24>
+-- Description:  <CRUD CLIENT>
+-- =============================================
+ALTER PROCEDURE SP_CreateClient
+    @nameProvince NVARCHAR(20),
+    @street NVARCHAR(100),
+    @name NVARCHAR(100),
+    @lastName NVARCHAR(100),
+    @secondLastName NVARCHAR(100),
+    @phone INT,
+    @ERROR INT OUT
 AS
 BEGIN
-	SET NOCOUNT ON;
+    SET NOCOUNT ON;
+    BEGIN TRY
+        BEGIN TRANSACTION;
+        
+        DECLARE @IdProvince INT;
+        DECLARE @IdAddress INT;
+        DECLARE @IdPerson INT;
+        DECLARE @IdClient INT;
 
-	BEGIN TRAN
+        -- Verificar si la provincia ya existe
+        SELECT @IdProvince = IdProvince
+        FROM Province
+        WHERE nameProvince = @nameProvince;
 
-	BEGIN TRY
+        -- Insertar en la tabla Province si no existe
+        IF @IdProvince IS NULL
+        BEGIN
+            INSERT INTO Province (nameProvince)
+            VALUES (@nameProvince);
+            SET @IdProvince = SCOPE_IDENTITY();
+        END
 
-	INSERT INTO Province(
-		nameProvince)
-	VALUES(
-		@nameProvince
-	)
-	SET @IdProvince = SCOPE_IDENTITY()
+        -- Insertar en la tabla Address
+        INSERT INTO Address (street, IdProvince)
+        VALUES (@street, @IdProvince);
+        SET @IdAddress = SCOPE_IDENTITY();
 
-	INSERT INTO Phone(
-		phone)
-	VALUES(
-		@phone
-	)
-	SET @IdPhone = SCOPE_IDENTITY()
+        -- Insertar en la tabla Person
+        INSERT INTO Person (name, lastName, secondLastName, IdAddress)
+        VALUES (@name, @lastName, @secondLastName, @IdAddress);
+        SET @IdPerson = SCOPE_IDENTITY();
 
-	INSERT INTO Address(
-		street,
-		IdProvince)
-	VALUES(
-		@street,
-		@IdProvince)
-	SET @IdAddress = SCOPE_IDENTITY()
+        -- Insertar en la tabla Client
+        INSERT INTO Client (IdPerson)
+        VALUES (@IdPerson);
+        SET @IdClient = SCOPE_IDENTITY();
 
-	INSERT INTO Person(
-		name,
-		lastName,
-		secondLastName,
-		IdPhone,
-		IdAddress)
-	VALUES(
-		@name,
-		@lastName,
-		@secondLastName,
-		@IdPhone,
-		@IdAddress)
-	SET @IdPerson = SCOPE_IDENTITY()
+        -- Insertar en la tabla Phone
+        INSERT INTO Phone (phone, IdPerson)
+        VALUES (@phone, @IdPerson);
 
-	INSERT INTO Client(
-		IdPerson)
-	VALUES(
-		@IdPerson)
-	SET @IdClient = SCOPE_IDENTITY()
+        -- Insertar en la tabla ShoppingHistory
+        INSERT INTO ShoppingHistory (IdClient)
+        VALUES (@IdClient);
 
-	INSERT INTO ShoppingHistory(
-		IdClient)
-	VALUES(
-		@IdClient)
-	SET @IdShoppingHistory = SCOPE_IDENTITY()
-
-	COMMIT
-
-	END TRY
-
-	BEGIN CATCH
-	SET @ERROR = ERROR_NUMBER()
-	ROLLBACK TRAN
-
-	END CATCH
-
+        COMMIT TRANSACTION;
+        SET @ERROR = 0; -- Éxito
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        SET @ERROR = ERROR_NUMBER();
+    END CATCH
 END
 GO
 
-DECLARE @Error INT;
+
+
+-- Ejemplo de ejecución del procedimiento almacenado
+DECLARE @ERROR INT;
 
 EXEC SP_CreateClient
-    @IdProvince = 0,
-    @nameProvince = N'SomeProvince',
-    @IdPhone = 0,
-    @phone = 1234567890,
-    @name = N'John',
-    @lastName = N'Doe',
-    @secondLastName = N'Smith',
-    @IdAddress = 0,
-    @street = N'SomeStreet',
-    @IdPerson = 0,
-    @IdClient = 0,
-    @IdShoppingHistory = 0,
-    @ERROR = @Error OUTPUT;
+    @nameProvince = 'San Jose',
+    @street = '123 Main St',
+    @name = 'John',
+    @lastName = 'Doe',
+    @secondLastName = 'Smith',
+    @phone = 1452349,
+    @ERROR = @ERROR OUTPUT;
 
--- Check the value of @Error to see if there was an error
-SELECT @Error AS ErrorCode;
+SELECT @ERROR AS ErrorCode;
+select * from Address
 
-select * from ShoppingHistory
