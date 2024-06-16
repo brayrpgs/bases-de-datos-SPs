@@ -37,7 +37,6 @@ public class viewMain extends javax.swing.JFrame {
         miGetClient = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        muIPayment = new javax.swing.JMenu();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         muIProduct = new javax.swing.JMenu();
         miNewProduct = new javax.swing.JMenuItem();
@@ -49,6 +48,8 @@ public class viewMain extends javax.swing.JFrame {
         miMyAccount = new javax.swing.JMenu();
         miLogOut = new javax.swing.JMenuItem();
         miHelp = new javax.swing.JMenu();
+        muMyCar = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -83,9 +84,6 @@ public class viewMain extends javax.swing.JFrame {
 
         jMenu1.add(menuIClient);
         jMenu1.add(jSeparator1);
-
-        muIPayment.setText("Pagos");
-        jMenu1.add(muIPayment);
         jMenu1.add(jSeparator2);
 
         muIProduct.setText("Productos");
@@ -150,6 +148,13 @@ public class viewMain extends javax.swing.JFrame {
         miHelp.setText("Ayuda");
         jMenuBar1.add(miHelp);
 
+        muMyCar.setText("Carrito");
+
+        jMenuItem5.setText("Agregar productos");
+        muMyCar.add(jMenuItem5);
+
+        jMenuBar1.add(muMyCar);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -206,6 +211,7 @@ public class viewMain extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -221,7 +227,7 @@ public class viewMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem miNewProduct;
     private javax.swing.JMenuItem miUpdateClient;
     private javax.swing.JMenuItem miUpdateProduct;
-    private javax.swing.JMenu muIPayment;
     private javax.swing.JMenu muIProduct;
+    private javax.swing.JMenu muMyCar;
     // End of variables declaration//GEN-END:variables
 }

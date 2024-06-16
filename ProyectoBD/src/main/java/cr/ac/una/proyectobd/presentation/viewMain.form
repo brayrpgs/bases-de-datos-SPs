@@ -49,11 +49,6 @@
             </Menu>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
-            <Menu class="javax.swing.JMenu" name="muIPayment">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Pagos"/>
-              </Properties>
-            </Menu>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="muIProduct">
@@ -126,6 +121,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ayuda"/>
           </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="muMyCar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Carrito"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agregar productos"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

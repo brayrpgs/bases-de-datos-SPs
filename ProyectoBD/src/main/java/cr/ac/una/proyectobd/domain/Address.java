@@ -11,7 +11,7 @@ package cr.ac.una.proyectobd.domain;
 public class Address {
     private int idAddress;
     private String street;
-      private Province province;
+    private Province province;
 
     public Address(int idAddress, String street, Province province) {
         this.idAddress = idAddress;
