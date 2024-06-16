@@ -5,36 +5,93 @@
 package cr.ac.una.proyectobd.domain;
 
 /**
- *
- * @author Daniel Briones
+*
+* @author Ceasar Calvo
+* 
  */
 public class Product {
-    private int id;
-    private String name;
-    
-    public Product(){this.id = -1;}
+    private int idProduct;
+    private String productCode;
+    private String productName;
+    private String productDescription;
+    private int idSupplier;
+    private Double price;
+    private int idCategory;
 
-    public Product(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    
-    
-
-    public int getId() {
-        return id;
+    public Product() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Product(int idProduct, String productCode, String productName, String productDescription, int idSupplier, Double price, int idCategory) {
+        this.idProduct = idProduct;
+        this.productCode = productCode;
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.idSupplier = idSupplier;
+        this.price = price;
+        this.idCategory = idCategory;
     }
 
-    public String getName() {
-        return name;
+   
+
+    public int getIdProduct() {
+        return idProduct;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIdProduct(int idProduct) {
+        this.idProduct = idProduct;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public int getIdSupplier() {
+        return idSupplier;
+    }
+
+    public void setIdSupplier(int idSupplier) {
+        this.idSupplier = idSupplier;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "idProduct=" + idProduct + ", productCode=" + productCode + ", productName=" + productName + ", productDescription=" + productDescription + ", idSupplier=" + idSupplier + ", price=" + price + ", idCategory=" + idCategory + '}';
     }
 
     

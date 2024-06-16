@@ -6,42 +6,60 @@ package cr.ac.una.proyectobd.domain;
 
 /**
  *
- * @author Daniel Briones
+ * @author Ceasar Calvo
  */
 public class Supplier {
-    private int id;
-    private String name;
-    
-    public Supplier(){
-        this.id = -1;
+    private int idSupplier;
+    private String nameSupplier;
+    private String informationSupplier;
+    private Double priceBase;
+
+    public Supplier(int idSupplier, String nameSupplier, String informationSupplier, Double priceBase) {
+        this.idSupplier = idSupplier;
+        this.nameSupplier = nameSupplier;
+        this.informationSupplier = informationSupplier;
+        this.priceBase = priceBase;
     }
 
-    public Supplier(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Supplier() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdSupplier() {
+        return idSupplier;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdSupplier(int idSupplier) {
+        this.idSupplier = idSupplier;
     }
 
-    public String getName() {
-        return name;
+    public String getNameSupplier() {
+        return nameSupplier;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameSupplier(String nameSupplier) {
+        this.nameSupplier = nameSupplier;
+    }
+
+    public String getInformationSupplier() {
+        return informationSupplier;
+    }
+
+    public void setInformationSupplier(String informationSupplier) {
+        this.informationSupplier = informationSupplier;
+    }
+
+    public Double getPriceBase() {
+        return priceBase;
+    }
+
+    public void setPriceBase(Double priceBase) {
+        this.priceBase = priceBase;
     }
 
     @Override
     public String toString() {
-        return this.name;
+        return "Supplier{" + "idSupplier=" + idSupplier + ", nameSupplier=" + nameSupplier + ", informationSupplier=" + informationSupplier + ", priceBase=" + priceBase + '}';
     }
-    
     
     
 }

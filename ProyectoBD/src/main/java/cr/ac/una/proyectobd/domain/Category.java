@@ -6,41 +6,49 @@ package cr.ac.una.proyectobd.domain;
 
 /**
  *
- * @author Daniel Briones
+ * @author Ceasa
  */
 public class Category {
-    private int id;
-    private String name;
+    private int idCategory;
+    private String codeCategory;
+    private String categoryName;
+
+    public Category(int idCategory, String codeCategory, String categoryName) {
+        this.idCategory = idCategory;
+        this.codeCategory = codeCategory;
+        this.categoryName = categoryName;
+    }
 
     public Category() {
     }
 
-    public Category(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public int getIdCategory() {
+        return idCategory;
     }
 
-    public int getId() {
-        return id;
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getCodeCategory() {
+        return codeCategory;
     }
 
-    public String getName() {
-        return name;
+    public void setCodeCategory(String codeCategory) {
+        this.codeCategory = codeCategory;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 
     @Override
     public String toString() {
-        return this.name;
+        return "Category{" + "idCategory=" + idCategory + ", codeCategory=" + codeCategory + ", categoryName=" + categoryName + '}';
     }
     
     
