@@ -8,13 +8,14 @@ package cr.ac.una.proyectobd.domain;
  *
  * @author Ceasar Calvo
  */
-public class Supplier {
+public class Supplier extends Person {
     private int idSupplier;
     private String nameSupplier;
     private String informationSupplier;
     private Double priceBase;
 
-    public Supplier(int idSupplier, String nameSupplier, String informationSupplier, Double priceBase) {
+    public Supplier(int idSupplier, String nameSupplier, String informationSupplier, Double priceBase, int idPerson, String name, String lastName, String secondLastName, int idAddress) {
+        super(idPerson, name, lastName, secondLastName, idAddress);
         this.idSupplier = idSupplier;
         this.nameSupplier = nameSupplier;
         this.informationSupplier = informationSupplier;
@@ -60,6 +61,8 @@ public class Supplier {
     public String toString() {
         return "Supplier{" + "idSupplier=" + idSupplier + ", nameSupplier=" + nameSupplier + ", informationSupplier=" + informationSupplier + ", priceBase=" + priceBase + '}';
     }
+    
+    
     
     
 }
