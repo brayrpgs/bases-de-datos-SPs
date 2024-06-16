@@ -21,9 +21,9 @@ public class viewListProduct extends javax.swing.JFrame {
      */
     public viewListProduct() {
         initComponents();
-        list.add(new Product(1, "Producto 1"));
+      //  list.add(new Product(1, "Producto 1"));
 
-        uploadTableProduct(list);
+       // uploadTableProduct(list);
         addSelectionListener();
     }
 
@@ -61,7 +61,7 @@ public class viewListProduct extends javax.swing.JFrame {
                 initializerViews.createViewUpdateProduct(list.get(selectedRow));
                 break;
             case 1:
-                JOptionPane.showMessageDialog(null, "Eliminar: " + list.get(selectedRow).getName());
+              //  JOptionPane.showMessageDialog(null, "Eliminar: " + list.get(selectedRow).getName());
                 break;
             default:
                 break;
@@ -79,7 +79,7 @@ public class viewListProduct extends javax.swing.JFrame {
         for (Product product : list) {
             JButton editButton = new JButton("Editar");
             JButton deleteButton = new JButton("Eliminar");
-            model.addRow(new Object[]{product.getId(), product.getName(), product.getName(), product.getName(), product.getName(), product.getName(), editButton, deleteButton});
+           // model.addRow(new Object[]{product.getId(), product.getName(), product.getName(), product.getName(), product.getName(), product.getName(), editButton, deleteButton});
         }
     }
 

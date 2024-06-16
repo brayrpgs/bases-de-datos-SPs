@@ -39,18 +39,18 @@ public class viewEditProduct extends javax.swing.JFrame {
     private void uploadCB() {
 //        Traer los datos de la base de datos
         ArrayList<Supplier> listSupplier = new ArrayList<>();
-        listSupplier.add(new Supplier(1, "Proveedor 1"));
+       // listSupplier.add(new Supplier(1, "Proveedor 1"));
         
         cbSupplier.removeAllItems();
-        cbSupplier.addItem(new Supplier(0, "Ninguno"));
+       // cbSupplier.addItem(new Supplier(0, "Ninguno"));
         for (Supplier supplier : listSupplier) {
             cbSupplier.addItem(supplier);
         }
         
         ArrayList<Category> listCategory = new ArrayList<>();
-        listCategory.add(new Category(1, "Categoria 1"));
+       // listCategory.add(new Category(1, "Categoria 1"));
         cbCategory.removeAllItems();
-        cbCategory.addItem(new Category(0, "Ninguna"));
+       // cbCategory.addItem(new Category(0, "Ninguna"));
         for (Category category : listCategory) {
             cbCategory.addItem(category);
         }
@@ -58,7 +58,7 @@ public class viewEditProduct extends javax.swing.JFrame {
     }
     
     private void uploadData(){
-        tNameProduct.setText(this.p.getName());
+      //  tNameProduct.setText(this.p.getName());
         tDescription.setText("");
         cbSupplier.setSelectedIndex(0);
         tPrice.setText("");
