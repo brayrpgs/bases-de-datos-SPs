@@ -7,7 +7,7 @@ package cr.ac.una.proyectobd.domain;
  */
 public class Puntuation {
     private int idPuntuation;
-    private int idProduct;
+    private Product product;
     private String review;
     private int puntuationValue;
 
@@ -22,13 +22,14 @@ public class Puntuation {
         this.idPuntuation = idPuntuation;
     }
 
-    public int getIdProduct() {
-        return idProduct;
+    public Puntuation(int idPuntuation, Product product, String review, int puntuationValue) {
+        this.idPuntuation = idPuntuation;
+        this.product = product;
+        this.review = review;
+        this.puntuationValue = puntuationValue;
     }
 
-    public void setIdProduct(int idProduct) {
-        this.idProduct = idProduct;
-    }
+    
 
     public String getReview() {
         return review;
@@ -46,10 +47,22 @@ public class Puntuation {
         this.puntuationValue = puntuationValue;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
     @Override
     public String toString() {
-        return "Puntuation{" + "idPuntuation=" + idPuntuation + ", idProduct=" + idProduct + ", review=" + review + ", puntuationValue=" + puntuationValue + '}';
+        return "Puntuation{" + "idPuntuation=" + idPuntuation + ", product=" + product + ", review=" + review + ", puntuationValue=" + puntuationValue + '}';
     }
+    
+    
+
+  
     
     
 }

@@ -14,13 +14,16 @@ public class Supplier extends Person {
     private String informationSupplier;
     private Double priceBase;
 
-    public Supplier(int idSupplier, String nameSupplier, String informationSupplier, Double priceBase, int idPerson, String name, String lastName, String secondLastName, int idAddress) {
-        super(idPerson, name, lastName, secondLastName, idAddress);
+
+    public Supplier(int idSupplier, String nameSupplier, String informationSupplier, Double priceBase, int idPerson, String name, String lastName, String secondLastName, Address address) {
+        super(idPerson, name, lastName, secondLastName, address);
         this.idSupplier = idSupplier;
         this.nameSupplier = nameSupplier;
         this.informationSupplier = informationSupplier;
         this.priceBase = priceBase;
     }
+
+    
 
     public Supplier() {
     }

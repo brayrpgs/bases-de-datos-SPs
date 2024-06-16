@@ -11,13 +11,14 @@ package cr.ac.una.proyectobd.domain;
 public class MethodSend {
     private int idMethodSend;
     private String nameMethod;
-    private int idSupplier;
+    private Supplier supplier;
 
-    public MethodSend(int idMethodSend, String nameMethod, int idSupplier) {
+    public MethodSend(int idMethodSend, String nameMethod, Supplier supplier) {
         this.idMethodSend = idMethodSend;
         this.nameMethod = nameMethod;
-        this.idSupplier = idSupplier;
+        this.supplier = supplier;
     }
+
 
     public MethodSend() {
     }
@@ -38,18 +39,21 @@ public class MethodSend {
         this.nameMethod = nameMethod;
     }
 
-    public int getIdSupplier() {
-        return idSupplier;
+    public Supplier getSupplier() {
+        return supplier;
     }
 
-    public void setIdSupplier(int idSupplier) {
-        this.idSupplier = idSupplier;
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
     @Override
     public String toString() {
-        return "MethodSend{" + "idMethodSend=" + idMethodSend + ", nameMethod=" + nameMethod + ", idSupplier=" + idSupplier + '}';
+        return "MethodSend{" + "idMethodSend=" + idMethodSend + ", nameMethod=" + nameMethod + ", supplier=" + supplier + '}';
     }
+
+   
+
    
     
 }

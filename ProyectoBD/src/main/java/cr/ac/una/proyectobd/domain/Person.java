@@ -13,18 +13,20 @@ public class Person {
     private String name;
     private String lastName;
     private String secondLastName;
-    private int idAddress;
+    private Address address;
 
     public Person() {
     }
 
-    public Person(int idPerson, String name, String lastName, String secondLastName, int idAddress) {
+    public Person(int idPerson, String name, String lastName, String secondLastName, Address address) {
         this.idPerson = idPerson;
         this.name = name;
         this.lastName = lastName;
         this.secondLastName = secondLastName;
-        this.idAddress = idAddress;
+        this.address = address;
     }
+
+    
 
     public int getIdPerson() {
         return idPerson;
@@ -58,18 +60,20 @@ public class Person {
         this.secondLastName = secondLastName;
     }
 
-    public int getIdAddress() {
-        return idAddress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setIdAddress(int idAddress) {
-        this.idAddress = idAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "Person{" + "idPerson=" + idPerson + ", name=" + name + ", lastName=" + lastName + ", secondLastName=" + secondLastName + ", idAddress=" + idAddress + '}';
+        return "Person{" + "idPerson=" + idPerson + ", name=" + name + ", lastName=" + lastName + ", secondLastName=" + secondLastName + ", address=" + address + '}';
     }
+
+  
     
     
 }

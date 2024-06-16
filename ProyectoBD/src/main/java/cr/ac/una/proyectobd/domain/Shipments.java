@@ -12,22 +12,26 @@ import java.sql.Date;
  */
 public class Shipments {
     private int idShipments;
-    private int idSupplier;
+    private Supplier supplier;
     private Double priceFinal;
     private Date dateSend;
     private Date dateArrival;
     private Date elapsed;
-    private int idAddress;
+    private Address address;
 
-    public Shipments(int idShipments, int idSupplier, Double priceFinal, Date dateSend, Date dateArrival, Date elapsed, int idAddress) {
+    public Shipments(int idShipments, Supplier supplier, Double priceFinal, Date dateSend, Date dateArrival, Date elapsed, Address address) {
         this.idShipments = idShipments;
-        this.idSupplier = idSupplier;
+        this.supplier = supplier;
         this.priceFinal = priceFinal;
         this.dateSend = dateSend;
         this.dateArrival = dateArrival;
         this.elapsed = elapsed;
-        this.idAddress = idAddress;
+        this.address = address;
     }
+
+
+
+   
 
     public Shipments() {
     }
@@ -40,13 +44,15 @@ public class Shipments {
         this.idShipments = idShipments;
     }
 
-    public int getIdSupplier() {
-        return idSupplier;
+    public Supplier getSupplier() {
+        return supplier;
     }
 
-    public void setIdSupplier(int idSupplier) {
-        this.idSupplier = idSupplier;
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
+
+
 
     public Double getPriceFinal() {
         return priceFinal;
@@ -80,18 +86,21 @@ public class Shipments {
         this.elapsed = elapsed;
     }
 
-    public int getIdAddress() {
-        return idAddress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setIdAddress(int idAddress) {
-        this.idAddress = idAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "Shipments{" + "idShipments=" + idShipments + ", idSupplier=" + idSupplier + ", priceFinal=" + priceFinal + ", dateSend=" + dateSend + ", dateArrival=" + dateArrival + ", elapsed=" + elapsed + ", idAddress=" + idAddress + '}';
+        return "Shipments{" + "idShipments=" + idShipments + ", supplier=" + supplier + ", priceFinal=" + priceFinal + ", dateSend=" + dateSend + ", dateArrival=" + dateArrival + ", elapsed=" + elapsed + ", address=" + address + '}';
     }
+
+ 
+    
     
     
 }

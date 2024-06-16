@@ -14,9 +14,16 @@ public class Client extends Person {
     public Client() {
     }
 
-    public Client(int idPerson, String name, String lastName, String secondLastName, int idAddress) {
-        super(idPerson, name, lastName, secondLastName, idAddress);
+    public Client(int idClient) {
+        this.idClient = idClient;
     }
+
+    public Client(int idClient, int idPerson, String name, String lastName, String secondLastName, Address address) {
+        super(idPerson, name, lastName, secondLastName, address);
+        this.idClient = idClient;
+    }
+
+  
 
     public int getIdClient() {
         return idClient;

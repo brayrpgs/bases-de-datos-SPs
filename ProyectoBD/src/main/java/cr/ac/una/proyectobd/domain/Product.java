@@ -14,22 +14,36 @@ public class Product {
     private String productCode;
     private String productName;
     private String productDescription;
-    private int idSupplier;
+    private SupplierProduct supplierProduct;
     private Double price;
-    private int idCategory;
+    private Stock stock;
+    private Category category;
 
     public Product() {
     }
 
-    public Product(int idProduct, String productCode, String productName, String productDescription, int idSupplier, Double price, int idCategory) {
+    public Product(int idProduct, String productCode, String productName, String productDescription, SupplierProduct supplierProduct, Double price, Stock stock, Category category) {
         this.idProduct = idProduct;
         this.productCode = productCode;
         this.productName = productName;
         this.productDescription = productDescription;
-        this.idSupplier = idSupplier;
+        this.supplierProduct = supplierProduct;
         this.price = price;
-        this.idCategory = idCategory;
+        this.stock = stock;
+        this.category = category;
     }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+
+    
+
+    
 
    
 
@@ -65,13 +79,7 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public int getIdSupplier() {
-        return idSupplier;
-    }
-
-    public void setIdSupplier(int idSupplier) {
-        this.idSupplier = idSupplier;
-    }
+    
 
     public Double getPrice() {
         return price;
@@ -81,18 +89,30 @@ public class Product {
         this.price = price;
     }
 
-    public int getIdCategory() {
-        return idCategory;
+    public SupplierProduct getSupplierProduct() {
+        return supplierProduct;
     }
 
-    public void setIdCategory(int idCategory) {
-        this.idCategory = idCategory;
+    public void setSupplierProduct(SupplierProduct supplierProduct) {
+        this.supplierProduct = supplierProduct;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
     public String toString() {
-        return "Product{" + "idProduct=" + idProduct + ", productCode=" + productCode + ", productName=" + productName + ", productDescription=" + productDescription + ", idSupplier=" + idSupplier + ", price=" + price + ", idCategory=" + idCategory + '}';
+        return "Product{" + "idProduct=" + idProduct + ", productCode=" + productCode + ", productName=" + productName + ", productDescription=" + productDescription + ", supplierProduct=" + supplierProduct + ", price=" + price + ", stock=" + stock + ", category=" + category + '}';
     }
 
+   
+   
+
+  
     
 }

@@ -10,12 +10,14 @@ package cr.ac.una.proyectobd.domain;
  */
 public class ShoppingHistory {
     private int idShoppingHistory;
-    private int idClient;
+    private Client client;
 
-    public ShoppingHistory(int idShoppingHistory, int idClient) {
+    public ShoppingHistory(int idShoppingHistory, Client client) {
         this.idShoppingHistory = idShoppingHistory;
-        this.idClient = idClient;
+        this.client = client;
     }
+
+    
 
     public ShoppingHistory() {
     }
@@ -28,18 +30,22 @@ public class ShoppingHistory {
         this.idShoppingHistory = idShoppingHistory;
     }
 
-    public int getIdClient() {
-        return idClient;
+    public Client getClient() {
+        return client;
     }
 
-    public void setIdClient(int idClient) {
-        this.idClient = idClient;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override
     public String toString() {
-        return "ShoppingHistory{" + "idShoppingHistory=" + idShoppingHistory + ", idClient=" + idClient + '}';
+        return "ShoppingHistory{" + "idShoppingHistory=" + idShoppingHistory + ", client=" + client + '}';
     }
+
+   
+
+    
     
     
 }

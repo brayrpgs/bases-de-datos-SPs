@@ -10,14 +10,9 @@ package cr.ac.una.proyectobd.domain;
  */
 public class Stock {
     private int idStock;
-    private int idProduct;
     private int quantity;
 
-    public Stock(int idStock, int idProduct, int quantity) {
-        this.idStock = idStock;
-        this.idProduct = idProduct;
-        this.quantity = quantity;
-    }
+    
 
     public Stock() {
     }
@@ -30,14 +25,6 @@ public class Stock {
         this.idStock = idStock;
     }
 
-    public int getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(int idProduct) {
-        this.idProduct = idProduct;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -48,8 +35,10 @@ public class Stock {
 
     @Override
     public String toString() {
-        return "Stock{" + "idStock=" + idStock + ", idProduct=" + idProduct + ", quantity=" + quantity + '}';
+        return "Stock{" + "idStock=" + idStock + ", quantity=" + quantity + '}';
     }
+
+    
     
     
     

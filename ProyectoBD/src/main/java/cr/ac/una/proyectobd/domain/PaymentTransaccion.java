@@ -12,18 +12,20 @@ import java.sql.Date;
  */
 public class PaymentTransaccion {
     private int idPaymentTransaccion;
-    private int idPayment;
+    private Payment payment;
     private Date transaccionDate;
     private Double transaccionAmount;
     private String transaccionStatus;
 
-    public PaymentTransaccion(int idPaymentTransaccion, int idPayment, Date transaccionDate, Double transaccionAmount, String transaccionStatus) {
+    public PaymentTransaccion(int idPaymentTransaccion, Payment payment, Date transaccionDate, Double transaccionAmount, String transaccionStatus) {
         this.idPaymentTransaccion = idPaymentTransaccion;
-        this.idPayment = idPayment;
+        this.payment = payment;
         this.transaccionDate = transaccionDate;
         this.transaccionAmount = transaccionAmount;
         this.transaccionStatus = transaccionStatus;
     }
+
+    
 
     public PaymentTransaccion() {
     }
@@ -36,13 +38,15 @@ public class PaymentTransaccion {
         this.idPaymentTransaccion = idPaymentTransaccion;
     }
 
-    public int getIdPayment() {
-        return idPayment;
+    public Payment getPayment() {
+        return payment;
     }
 
-    public void setIdPayment(int idPayment) {
-        this.idPayment = idPayment;
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
+
+    
 
     public Date getTransaccionDate() {
         return transaccionDate;
@@ -70,8 +74,10 @@ public class PaymentTransaccion {
 
     @Override
     public String toString() {
-        return "PaymentTransaccion{" + "idPaymentTransaccion=" + idPaymentTransaccion + ", idPayment=" + idPayment + ", transaccionDate=" + transaccionDate + ", transaccionAmount=" + transaccionAmount + ", transaccionStatus=" + transaccionStatus + '}';
+        return "PaymentTransaccion{" + "idPaymentTransaccion=" + idPaymentTransaccion + ", payment=" + payment + ", transaccionDate=" + transaccionDate + ", transaccionAmount=" + transaccionAmount + ", transaccionStatus=" + transaccionStatus + '}';
     }
+
+   
     
     
 }

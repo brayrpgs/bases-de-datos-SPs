@@ -12,13 +12,15 @@ public class Phone {
     
     private int idPhone;
     private String phone;
-    private int idPerson;
+    private Person person;
 
-    public Phone(int idPhone, String phone, int idPerson) {
+    public Phone(int idPhone, String phone, Person person) {
         this.idPhone = idPhone;
         this.phone = phone;
-        this.idPerson = idPerson;
+        this.person = person;
     }
+
+    
 
     public Phone() {
     }
@@ -39,18 +41,22 @@ public class Phone {
         this.phone = phone;
     }
 
-    public int getIdPerson() {
-        return idPerson;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setIdPerson(int idPerson) {
-        this.idPerson = idPerson;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     @Override
     public String toString() {
-        return "Phone{" + "idPhone=" + idPhone + ", phone=" + phone + ", idPerson=" + idPerson + '}';
+        return "Phone{" + "idPhone=" + idPhone + ", phone=" + phone + ", person=" + person + '}';
     }
+
+   
+
+    
     
     
 }

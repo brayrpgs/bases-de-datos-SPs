@@ -11,14 +11,15 @@ package cr.ac.una.proyectobd.domain;
 public class Address {
     private int idAddress;
     private String street;
-    private int idProvince;
+      private Province province;
 
-    public Address(int idAddress, String street, int idProvince) {
+    public Address(int idAddress, String street, Province province) {
         this.idAddress = idAddress;
         this.street = street;
-        this.idProvince = idProvince;
+        this.province = province;
     }
 
+   
     public Address() {
     }
 
@@ -38,18 +39,20 @@ public class Address {
         this.street = street;
     }
 
-    public int getIdProvince() {
-        return idProvince;
+    public Province getProvince() {
+        return province;
     }
 
-    public void setIdProvince(int idProvince) {
-        this.idProvince = idProvince;
+    public void setProvince(Province province) {
+        this.province = province;
     }
 
     @Override
     public String toString() {
-        return "Address{" + "idAddress=" + idAddress + ", street=" + street + ", idProvince=" + idProvince + '}';
+        return "Address{" + "idAddress=" + idAddress + ", street=" + street + ", province=" + province + '}';
     }
+
     
+
     
 }

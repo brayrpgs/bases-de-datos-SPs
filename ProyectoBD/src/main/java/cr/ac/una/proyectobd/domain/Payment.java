@@ -12,20 +12,22 @@ import java.sql.Date;
  */
 public class Payment {
     private int idPayment;
-    private int idOrder;
+    private Order order;
     private Date paymentDate;
     private Double amount;
     private String paymentStatus;
-    private int idPaymentMethod;
+    private PaymentMethod paymentMethod;
 
-    public Payment(int idPayment, int idOrder, Date paymentDate, Double amount, String paymentStatus, int idPaymentMethod) {
+    public Payment(int idPayment, Order order, Date paymentDate, Double amount, String paymentStatus, PaymentMethod paymentMethod) {
         this.idPayment = idPayment;
-        this.idOrder = idOrder;
+        this.order = order;
         this.paymentDate = paymentDate;
         this.amount = amount;
         this.paymentStatus = paymentStatus;
-        this.idPaymentMethod = idPaymentMethod;
+        this.paymentMethod = paymentMethod;
     }
+
+    
 
     public Payment() {
     }
@@ -38,13 +40,7 @@ public class Payment {
         this.idPayment = idPayment;
     }
 
-    public int getIdOrder() {
-        return idOrder;
-    }
-
-    public void setIdOrder(int idOrder) {
-        this.idOrder = idOrder;
-    }
+   
 
     public Date getPaymentDate() {
         return paymentDate;
@@ -70,18 +66,28 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
 
-    public int getIdPaymentMethod() {
-        return idPaymentMethod;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setIdPaymentMethod(int idPaymentMethod) {
-        this.idPaymentMethod = idPaymentMethod;
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     @Override
     public String toString() {
-        return "Payment{" + "idPayment=" + idPayment + ", idOrder=" + idOrder + ", paymentDate=" + paymentDate + ", amount=" + amount + ", paymentStatus=" + paymentStatus + ", idPaymentMethod=" + idPaymentMethod + '}';
+        return "Payment{" + "idPayment=" + idPayment + ", order=" + order + ", paymentDate=" + paymentDate + ", amount=" + amount + ", paymentStatus=" + paymentStatus + ", paymentMethod=" + paymentMethod + '}';
     }
+    
+    
     
     
 }
