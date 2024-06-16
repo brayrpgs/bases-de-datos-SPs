@@ -6,6 +6,7 @@ package cr.ac.una.proyectobd.presentation;
 
 import cr.ac.una.proyectobd.presentation.cliente.viewCliente;
 import cr.ac.una.proyectobd.presentation.shoppingCart.viewProductSale;
+import cr.ac.una.proyectobd.presentation.shoppingCart.viewShipping;
 import cr.ac.una.proyectobd.utilities.initializerViews;
 
 /**
@@ -43,6 +44,7 @@ public class viewMain extends javax.swing.JFrame {
         miGetProduct = new javax.swing.JMenuItem();
         miUpdateProduct = new javax.swing.JMenuItem();
         miDeleteProduct = new javax.swing.JMenuItem();
+        jMenuItemEnvios = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         miExit = new javax.swing.JMenuItem();
         miMyAccount = new javax.swing.JMenu();
@@ -117,6 +119,14 @@ public class viewMain extends javax.swing.JFrame {
         muIProduct.add(miDeleteProduct);
 
         jMenu1.add(muIProduct);
+
+        jMenuItemEnvios.setText("Envios");
+        jMenuItemEnvios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEnviosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemEnvios);
         jMenu1.add(jSeparator3);
 
         miExit.setText("Salir");
@@ -184,7 +194,11 @@ public class viewMain extends javax.swing.JFrame {
     }//GEN-LAST:event_miUpdateProductActionPerformed
 
     private void miDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDeleteProductActionPerformed
-       initializerViews.createViewDeleteProduct();
+//       initializerViews.createViewDeleteProduct();
+       
+        viewCliente form = new viewCliente();
+        jDesktopPane1.add(form);
+        form.setVisible(true);
     }//GEN-LAST:event_miDeleteProductActionPerformed
 
     private void jmenuItemClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuItemClientesActionPerformed
@@ -198,9 +212,17 @@ public class viewMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         viewProductSale form = new viewProductSale();
+//        form.setSize(getSize());
         jDesktopPane1.add(form);
         form.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItemEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEnviosActionPerformed
+        // TODO add your handling code here:
+        viewShipping form = new viewShipping();
+        jDesktopPane1.add(form);
+        form.setVisible(true);
+    }//GEN-LAST:event_jMenuItemEnviosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -209,6 +231,7 @@ public class viewMain extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItemEnvios;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
