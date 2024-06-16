@@ -8,16 +8,14 @@ package cr.ac.una.proyectobd.domain;
  *
  * @author Ceasar Calvo
  */
-public class Client {
+public class Client extends Person {
     private int idClient;
-    private int idPerson;
-
-    public Client(int idClient, int idPerson) {
-        this.idClient = idClient;
-        this.idPerson = idPerson;
-    }
 
     public Client() {
+    }
+
+    public Client(int idPerson, String name, String lastName, String secondLastName, int idAddress) {
+        super(idPerson, name, lastName, secondLastName, idAddress);
     }
 
     public int getIdClient() {
@@ -28,18 +26,12 @@ public class Client {
         this.idClient = idClient;
     }
 
-    public int getIdPerson() {
-        return idPerson;
-    }
-
-    public void setIdPerson(int idPerson) {
-        this.idPerson = idPerson;
-    }
-
     @Override
     public String toString() {
-        return "Client{" + "idClient=" + idClient + ", idPerson=" + idPerson + '}';
+        return "Client{" + "idClient=" + idClient + '}';
     }
+
+    
     
     
 }
