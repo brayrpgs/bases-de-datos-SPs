@@ -1,0 +1,49 @@
+package com.mycompany.mavenproject1.dataConnection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class DataConnection {
+
+    private final static String USER = "usersql";
+    private final static String PASS = "123";
+    private final static String DATA = "pagosKendallV02";
+    private final static String SERVER = "localhost";
+    private final static String URL = "jdbc:sqlserver://" + SERVER + ":1433;databaseName=" + DATA + ";encrypt=false;trustServerCertificate=true;";
+
+    private static Connection cn;
+
+    public Connection getConexion() {
+       
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");  // Driver para SQL Server
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            if (cn == null || cn.isClosed()) {
+                cn = DriverManager.getConnection(URL, USER, PASS);
+            }
+        } catch (SQLException e) {
+            System.out.println("Ocurrió un error al conectar con la Base de Datos " + e.getMessage());
+        }
+
+        return cn;
+    }
+
+    public void closeConnection() {
+        try {
+            if (cn != null && !cn.isClosed()) {
+                cn.close();
+                cn = null;
+            }
+        } catch (SQLException e) {
+            System.out.println("Ocurrió un error al cerrar la conexión " + e.getMessage());
+        }
+    }
+
+}
